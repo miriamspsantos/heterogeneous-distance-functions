@@ -122,8 +122,18 @@ D = hvdmDist(X, T, feature_types, 'redef'); % HVDM-R
 D = hvdmSpecDist(X, T, feature_types);
 ```
 
+Note that although `thoracic.arff` is originally complete (i.e., it does not contain missing data), the heterogeneous functions can also handle missing values internally.
+In the following example, 20% of the dataset `X` is set to be missing completely at random (following a MCAR missing mechanism). The distance computation will be performed without the need to change any parameters in the previous code:
 
-The `main.m` file contains the basic functionality to use the different heterogeneous functions. To submit bugs and feature requests, please report at the [project issues](). 
+```matlab
+% Insert MVs in X
+p = 20; % percentage of missing data
+X = MCAR(X, p);
+
+D = heomDist(X, feature_types, 'original');
+```
+
+The `main.m` file contains the basic functionality to use the different heterogeneous functions. To submit bugs and feature requests, please report at the [project issues](https://github.com/miriamspsantos/heterogeneous-distance-functions/issues). 
 
 
 ## Citation Request:
