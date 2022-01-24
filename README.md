@@ -97,7 +97,6 @@ Consider the `thoracic.arff` dataset provided in `data` folder, containing conti
 The output distance matrix `D` returns the distances between every pair of patterns according to the HEOM distance. 
 
 ```matlab
-clear all, clc
 addpath('arff-to-mat');
 addpath('distances');
 addpath('data');
@@ -123,7 +122,7 @@ D = hvdmSpecDist(X, T, feature_types);
 ```
 
 Note that although `thoracic.arff` is originally complete (i.e., it does not contain missing data), the heterogeneous functions can also handle missing values internally.
-In the following example, 20% of the dataset `X` is set to be missing completely at random (following a MCAR missing mechanism). The distance computation will be performed without the need to change any parameters in the previous code:
+In the following example, 20% of the dataset `X` is set to be missing completely at random (i.e., following a MCAR missing mechanism). The distance computation will be performed without the need to change any parameters in the previous code:
 
 ```matlab
 % Insert MVs in X
